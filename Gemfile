@@ -3,7 +3,8 @@ ruby '2.2.4'
 
 gem 'rails', '~> 4.2.5'
 gem 'rails-api'
-gem 'active_model_serializers'
+# gem 'active_model_serializers'
+gem "active_model_serializers", github: "rails-api/active_model_serializers"
 gem 'rack-cors', require: 'rack/cors'
 gem 'pg'
 gem 'bcrypt', '~> 3.1.7'
