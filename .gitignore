@@ -1,6 +1,7 @@
 
 # Created by https://www.gitignore.io/api/rails,ruby,node,osx,linux,windows
 
+.env
 ### Rails ###
 *.rbc
 capybara-*.html
@@ -123,7 +124,7 @@ node_modules
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
 
 # Thumbnails
 ._*
