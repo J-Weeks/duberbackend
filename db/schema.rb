@@ -37,11 +37,11 @@ ActiveRecord::Schema.define(version: 20160225153939) do
     t.string   "email",           null: false
     t.string   "token",           null: false
     t.string   "password_digest", null: false
-    t.string   "address",         null: false
-    t.string   "first_name",      null: false
-    t.string   "last_name",       null: false
-    t.string   "description",     null: false
-    t.string   "url",             null: false
+    t.string   "address"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "description"
+    t.string   "url"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
