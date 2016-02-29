@@ -33,7 +33,8 @@ class DogsController < ApplicationController
     @dog = Dog.find(params[:id])
 
     if @dog.update(dog_params)
-      head :no_content
+      # head :no_content
+      render json: @dog
     else
       render json: @dog.errors, status: :unprocessable_entity
     end
@@ -54,6 +55,6 @@ class DogsController < ApplicationController
     end
 
     def dog_params
-      params.require(:dog).permit(:name, :breed, :description, :size, :note, :url, :rating, :walker_id, :user_id)
+      params.permit(:name, :breed, :description, :size, :note, :url, :rating, :walker_id, :user_id)
     end
 end
