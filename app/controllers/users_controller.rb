@@ -1,6 +1,7 @@
 #
 class UsersController < ProtectedController
   skip_before_action :authenticate, only: [:signup, :signin]
+  # before_action :set_user, only: [:update]
 
   # POST '/sign-up'
   def signup
@@ -54,8 +55,16 @@ class UsersController < ProtectedController
   end
 
   def update
-    head :bad_request
+      user = User.find(params[:id])
+
+      if user.update(user_params)
+        # head :no_content
+        render json: user
+      else
+        render json: @user.errors, status: :unprocessable_entity
+      end
   end
+
 
   private
 
@@ -67,6 +76,14 @@ class UsersController < ProtectedController
   def pw_creds
     params.require(:passwords)
       .permit(:old, :new)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def user_params
+    params.permit(:email, :token, :address, :first_name, :last_name, :description, :url)
   end
 
   private :user_creds, :pw_creds
